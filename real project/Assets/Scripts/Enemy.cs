@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] float currentHP, maxHP;
+    public float currentHP;
+    public float maxHP = 50;
+
+    public GameObject hitbox;
 
     void Start()
     {
-        currentHP = maxHP;
+        
     }
 
     public void TakeDmg(float damage)
@@ -20,4 +23,10 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void Attack()
+    {
+        GameObject newobject = Instantiate(hitbox, transform.position, Quaternion.identity);
+        Destroy(newobject, 0.3f);
+    }
+
 }

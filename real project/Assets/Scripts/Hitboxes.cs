@@ -31,7 +31,8 @@ public class Hitboxes : MonoBehaviour
             cooldown -= Time.deltaTime;
             atkready = false;
             box.GetComponent<Renderer>().material = oldMat;
-        } else if (cooldown < 0)
+        }
+        else if (cooldown < 0)
         {
             atkready = true;
             cooldown = 0.0f;
@@ -42,7 +43,8 @@ public class Hitboxes : MonoBehaviour
             LaunchAttack(hitbox[0]);
             Debug.Log("swing");
             cooldown = 0.4f;
-        } else if ((Input.GetKeyDown(KeyCode.G)) && (atkready == false))
+        }
+        else if ((Input.GetKeyDown(KeyCode.G)) && (atkready == false))
         {
             Debug.Log("calmdown");
         }
@@ -53,7 +55,7 @@ public class Hitboxes : MonoBehaviour
         Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
         foreach (Collider c in cols)
         {
-            if(c.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
+            if (c.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
             {
                 enemyComponent.TakeDmg(1);
             }

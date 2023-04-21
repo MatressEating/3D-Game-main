@@ -4,13 +4,12 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    public float HP = 50;
-
     public NavMeshAgent agent;
 
     public Transform player;
 
     public LayerMask defGround, defPlayer;
+
 
     //roaming variables 
     public Vector3 walkPoint;
@@ -51,13 +50,11 @@ public class EnemyAI : MonoBehaviour
         if (!walkPointSet)
         {
             SearchWalkPoint();
-            Debug.Log("found walkpoint");
         }
 
         if (walkPointSet)
         {
             agent.SetDestination(walkPoint);
-            Debug.Log("going to walkpoint");
         }
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
@@ -65,7 +62,6 @@ public class EnemyAI : MonoBehaviour
         if (distanceToWalkPoint.magnitude < 1f)
         {
             walkPointSet = false;
-            Debug.Log("reached walkpoint");
         }
     }
 
@@ -96,8 +92,10 @@ public class EnemyAI : MonoBehaviour
         transform.LookAt(player);
 
         if (!alreadyAttacked)
-        { 
-        //attack code! ! !
+        {
+            GetComponent<Enemy>().Attack();
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), 3);
         }
 
     }
