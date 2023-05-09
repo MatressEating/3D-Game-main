@@ -13,6 +13,10 @@ public class EnemyAttack : MonoBehaviour
             rb = c.attachedRigidbody;
             Debug.Log(rb);
             rb.AddForce(transform.forward * 9000, ForceMode.Impulse);
+            if (c.gameObject.TryGetComponent<PlayerStats>(out PlayerStats playerComponent))
+            {
+                playerComponent.TakeDmg(1);
+            }
         }
     }
 

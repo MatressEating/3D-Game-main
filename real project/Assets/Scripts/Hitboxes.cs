@@ -38,18 +38,23 @@ public class Hitboxes : MonoBehaviour
             cooldown = 0.0f;
             box.GetComponent<Renderer>().material = newMat;
         }
-        if ((Input.GetKeyDown(KeyCode.G)) && (atkready == true))
+        
+        
+        
+    }
+    private void OnMouseDown()
+    {
+        if (atkready == true)
         {
             LaunchAttack(hitbox[0]);
             Debug.Log("swing");
             cooldown = 0.4f;
         }
-        else if ((Input.GetKeyDown(KeyCode.G)) && (atkready == false))
+        else if (atkready == false)
         {
             Debug.Log("calmdown");
         }
     }
-
     private void LaunchAttack(Collider col)
     {
         Collider[] cols = Physics.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation, LayerMask.GetMask("Hitbox"));
