@@ -59,6 +59,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             Control.kills++;
+            Control.bestkills++;
         }
     }
     public void Attack()

@@ -12,6 +12,7 @@ public class Rerun : MonoBehaviour
         {
             Debug.Log("reset! ! !");
             Control.runs++;
+            Control.bestruns++;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         

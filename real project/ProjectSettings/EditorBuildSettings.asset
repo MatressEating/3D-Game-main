@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/menu.unity
     guid: 8fd2a23f41945cc429fffafa4e228840
   - enabled: 1
-    path: Assets/Scenes/3Dgame.unity
-    guid: 7a1cdcca874f57f41b162d34eb3f1e2d
+    path: Assets/Scenes/remake.unity
+    guid: 26967c4b4a4dfaf409aafb32ce130748
   - enabled: 1
     path: Assets/Scenes/deadscreen.unity
     guid: 9f00df7cc512d8a4ea0c2edf94ae19f9
+  - enabled: 0
+    path: Assets/Scenes/3Dgame.unity
+    guid: 7a1cdcca874f57f41b162d34eb3f1e2d
   m_configObjects: {}

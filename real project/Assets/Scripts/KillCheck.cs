@@ -9,7 +9,6 @@ public class KillCheck : MonoBehaviour
     public Text runCounter;
 
 
-
     // Update is called once per frame
     void Update()
     {
